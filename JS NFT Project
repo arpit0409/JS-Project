@@ -1,0 +1,51 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// create a variable to hold your NFT's
+const NFTstorage = []
+
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+function mintNFT (_firstname, _skinTone, _jacketType, _gender) {
+    const NFTobject = {
+        "firstname": _firstname, 
+        "skinTone": _skinTone,
+        "jacketType": _jacketType,
+        "gender": _gender
+    }
+    NFTstorage.push(NFTobject);
+    console.log(_firstname + " Has Been Minted");
+}
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listNFTs () {
+ for(let i = 0; i < NFTstorage.length; i++){
+    console.log("\nID: \t\t\t" + (i + 1));
+    console.log("Name: \t\t\t" + NFTstorage[i].firstname);
+    console.log("skinTone: \t\t" + NFTstorage[i].skinTone);
+    console.log("jacket Type: \t" + NFTstorage[i].jacketType);
+    console.log("gender: \t\t" + NFTstorage[i].gender);
+ }
+}
+
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() {
+console.log("\nThe Length of NFT Storage = " + NFTstorage.length);
+}
+
+// call your functions below this line
+mintNFT("Arpit", "Fair", "Leather", "Male");
+mintNFT("Priyanshu", "Light", "Bomber", "Male");
+mintNFT("Abhinav", "Medium", "Trench", "Male");
+mintNFT("Shivansh", "Dark", "Jean", "Male");
+listNFTs();
+getTotalSupply();
